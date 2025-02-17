@@ -7,10 +7,13 @@
 </head>
 <body>
     <h1>Available Shoe Sizes</h1>
+    
     <h2>US Men's Sizes</h2>
     <ul id="usMenSizes"></ul>
+    
     <h2>US Women's Sizes</h2>
     <ul id="usWomenSizes"></ul>
+    
     <h2>EU Sizes</h2>
     <ul id="euSizes"></ul>
 
@@ -18,14 +21,19 @@
         const usMenSizes = [7, 8, 9, 10, 11, 12, 13];
         const usWomenSizes = [4, 5, 6, 7, 8, 9, 10, 11];
         const euSizes = Array.from({ length: 13 }, (_, i) => i + 35);
-        
-        const usMenList = document.getElementById('usMenSizes');
-        usMenSizes.forEach(size => {
-            const li = document.createElement('li');
-            li.textContent = `Size ${size}`;
-            usMenList.appendChild(li);
-        });
 
-        const usWomenList = document.getElementById('usWomenSizes');
-        usWomenSizes.forEach(size => {
-            const li
+        function populateList(sizes, listId) {
+            const list = document.getElementById(listId);
+            sizes.forEach(size => {
+                const li = document.createElement('li');
+                li.textContent = `Size ${size}`;
+                list.appendChild(li);
+            });
+        }
+
+        populateList(usMenSizes, 'usMenSizes');
+        populateList(usWomenSizes, 'usWomenSizes');
+        populateList(euSizes, 'euSizes');
+    </script>
+</body>
+</html>
